@@ -1,0 +1,23 @@
+- name: Include setup variables
+  include_vars: '../vars/setup.yml'
+
+- name: Install required packages for running Docker
+  become: yes
+  dnf:
+      name: "{{ item }}"
+      state: present
+  with_items: "{{ docker_packages }}"
+
+# Workaround for "Failed to import docker-py - No module named docker. Try `pip install docker-py"
+# For some reason installing python-docker-py doesn't help.
+- name: Install docker-py
+  pip:
+      name: docker-py
+      state: present
+
+- name: Start docker service
+  become: yes
+  service:
+      name: docker
+      state: running
+      enabled: yes

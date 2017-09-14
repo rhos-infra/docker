@@ -1,0 +1,6 @@
+- name: Create the container
+  become: yes
+  docker_container:
+      name: "{{ provision.name }}"
+      state: present
+      image: "{{ provision.image }}"

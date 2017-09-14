@@ -13,13 +13,14 @@ subparsers:
                       help: The name of the container
                       required: yes
 
-                  images:
+                  image:
                       type: Value
                       help: The name of the image to use with docker
+                      default: python:2.7-slim
 
                   run:
                       type: Bool
-                      default: no
+                      default: yes
                       help: Run the container after creation
 
                   create:

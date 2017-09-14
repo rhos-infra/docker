@@ -1,6 +1,15 @@
-- name: Create the container
-  include: 'tasks/create.yml'
-  tags:
-      - create
-  when: provision.create | default(False)
+- name: Run docker plugin
+  hosts: localhost
+  tasks:
+      - name: Setup
+        include: 'tasks/setup.yml'
+        tags:
+            - setup
+
+      - name: Create the container
+        include: 'tasks/create.yml'
+        tags:
+            - create
+        when: provision.create | default(False)
+
 

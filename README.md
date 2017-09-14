@@ -21,7 +21,8 @@ Docker InfraRed Plugin
 
 To create and run docker container:
 
-    infrared docker --name mario --run yes
+    infrared docker --name mario --create yes
+
 
 ## Tests
 
