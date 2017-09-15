@@ -11,7 +11,6 @@ subparsers:
                   name:
                       type: Value
                       help: The name of the container
-                      required: yes
 
                   image:
                       type: Value
@@ -32,3 +31,18 @@ subparsers:
                       type: Bool
                       default: no
                       help: Remove the container
+
+                  registry:
+                      type: Value
+                      help: The address for the docker registry to use
+                      default: rhos-qe-mirror-tlv.usersys.redhat.com
+
+                  list-images:
+                      type: Bool
+                      help: List the existing images in the registry
+                      default: no
+
+                  list-tags:
+                      type: Bool
+                      help: List all the tags of a specific image (you have to specify image with --image)
+                      default: no

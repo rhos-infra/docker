@@ -6,10 +6,16 @@
         tags:
             - setup
 
-      - name: Create the container
+      - name: Create container
         include: 'tasks/create.yml'
         tags:
             - create
         when: provision.create | default(False)
 
 
+      - name: List tags/images/containers
+        include: 'tasks/list.yml'
+        tags:
+            - list
+        when: (provision.list.images | default(False)) or
+              (provision.list.tags | default(False))

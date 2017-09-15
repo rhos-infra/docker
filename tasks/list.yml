@@ -1,0 +1,8 @@
+- name: List images in the registry
+  become: yes
+  command: "curl -X GET https:// {{ provision.registry }}:5000/v2/_catalog"
+  when: provision.list.images | default(False)
+
+  # - name: List tags of a specific image
+  # become: yes
+  

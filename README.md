@@ -2,10 +2,6 @@
 
 Docker InfraRed Plugin
 
-*WORK IN PROGRESS*
-
-*This plugin is not ready for use*
-
 ## Installation
 
 1. Install infrared (https://github.com/redhat-openstack/infrared)
@@ -21,7 +17,15 @@ Docker InfraRed Plugin
 
 To create and run docker container:
 
-    infrared docker --name mario --create yes
+    infrared docker --name mario --create yes --run yes 
+
+To list all the images in the registry:
+
+    infrared docker --list-images yes
+
+To list all the tags for a specific image:
+
+    infrared docker --list-tags yes --image luigi
 
 
 ## Tests
