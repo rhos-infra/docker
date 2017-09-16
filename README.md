@@ -32,6 +32,14 @@ To list all the tags for a specific image:
 
     infrared docker --list-tags yes --image luigi
 
+Remove the container:
+
+    infrared docker --remove yes --name dev_app
+
+Stop the container:
+
+    infrared docker --stop yes --name prod_app
+
 
 ## Tests
 

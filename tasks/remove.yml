@@ -1,0 +1,7 @@
+---
+
+- name: Remove the container
+  become: 'yes'
+  docker_container:
+      name: "{{ provision.name }}"
+      state: absent

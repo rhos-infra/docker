@@ -37,6 +37,11 @@ subparsers:
                       default: no
                       help: Remove the container
 
+                  stop:
+                      type: Bool
+                      default: no
+                      help: Stop the container
+
                   registry:
                       type: Value
                       help: The address for the docker registry to use

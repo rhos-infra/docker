@@ -12,6 +12,17 @@
             - create
         when: provision.create | default(False)
 
+      - name: Stop container
+        include: 'tasks/stop.yml'
+        tags:
+            - stop
+        when: provision.stop | default(False)
+
+      - name: Remove container
+        include: 'tasks/remove.yml'
+        tags:
+            - remove
+        when: provision.remove | default(False)
 
       - name: List tags/images/containers
         include: 'tasks/list.yml'
