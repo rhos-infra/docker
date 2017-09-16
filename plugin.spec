@@ -22,6 +22,11 @@ subparsers:
                       default: yes
                       help: Run the container after creation
 
+                  command:
+                      type: Value
+                      default: None
+                      help: The command to execute when running the container
+
                   create:
                       type: Bool
                       default: no

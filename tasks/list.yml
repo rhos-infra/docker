@@ -1,8 +1,27 @@
+---
+
 - name: List images in the registry
-  become: yes
+  become: 'yes'
   command: "curl -X GET https:// {{ provision.registry }}:5000/v2/_catalog"
+  register: images_list
   when: provision.list.images | default(False)
 
-  # - name: List tags of a specific image
-  # become: yes
-  
+- name: Print images list
+  become: 'yes'
+  debug:
+      msg: "{{ item }}"
+  with_items: "{{ images_list.stdout.split('\n') }}"
+  when: provision.list.images | default(False)
+
+- name: List tags for a specified image
+  become: 'yes'
+  command: "curl -X GET https:// {{ provision.registry }}:5000/v2/{{ provision.image }}/tags/list"
+  register: tags_list
+  when: provision.list.tags | default(False)
+
+- name: Print tags list
+  become: 'yes'
+  debug:
+      msg: "{{ item }}"
+  with_items: "{{ tags_list.stdout.split('\n') }}"
+  when: provision.list.tags | default(False)

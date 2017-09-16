@@ -1,23 +1,28 @@
-# docker
+# Docker IR
 
 Docker InfraRed Plugin
 
 ## Installation
 
 1. Install infrared (https://github.com/redhat-openstack/infrared)
+
 2. Install docker infrared plugin:
 
-    infrared plugin add <ir_docker_plugin_path>
-
-3. Run the plugin:
-
-    infrared docker -h
+    infrared plugin add https://github.com/rhos-infra/docker.git
 
 ## Usage
 
-To create and run docker container:
+Create a container without starting it:
 
-    infrared docker --name mario --create yes --run yes 
+    infrared docker --name mario --create yes
+
+Create a conatainer using the image 'centos7' and run it:
+
+    infrared docker --name centos7 --create yes --run yes
+
+Create a container and run /bin/bash:
+
+    infrared docker --create yes --run yes --command /bin/bash
 
 To list all the images in the registry:
 

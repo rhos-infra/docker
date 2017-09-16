@@ -1,6 +1,12 @@
+---
+
+- name: Include setup variables
+  include_vars: '../vars/create.yml'
+
 - name: Create the container
-  become: yes
+  become: 'yes'
   docker_container:
       name: "{{ provision.name }}"
-      state: present
+      state: "{{ 'started' if provision.run == True else 'present' }}"
+      command: "{{ provision.command | default(command) }}"
       image: "{{ provision.image }}"
